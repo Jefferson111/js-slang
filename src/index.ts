@@ -21,6 +21,7 @@ import { sandboxedEval } from './transpiler/evalContainer'
 import { transpile } from './transpiler/transpiler'
 import { transpileToGPU } from './gpu/gpu'
 import { transpileToLazy } from './lazy/lazy'
+import { transpileToSound } from './sound/sound'
 import {
   Context,
   Error as ResultError,
@@ -489,6 +490,10 @@ export async function runInContext(
           break
         case 'lazy':
           transpileToLazy(program)
+          break
+        case 'sound':
+          console.log('partial evaluate')
+          transpileToSound(program)
           break
       }
 

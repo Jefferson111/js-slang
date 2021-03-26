@@ -258,7 +258,7 @@ export const importBuiltins = (context: Context, externalBuiltIns: CustomBuiltIn
       (fun: Function, args: Value) => fun.apply(fun, list_to_vector(args))
     )
 
-    if (context.variant === 'gpu') {
+    if (context.variant === 'gpu' || context.variant == 'sound') {
       defineBuiltin(context, '__clearKernelCache()', gpu_lib.__clearKernelCache)
       defineBuiltin(
         context,
